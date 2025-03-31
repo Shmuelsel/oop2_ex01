@@ -5,6 +5,7 @@
 class MatrixFunction {
 public:
 	virtual ~MatrixFunction() = default;
-	virtual SquareMatrix apply(const SquareMatrix& m) const = 0;
+	virtual SquareMatrix apply(const std::vector<SquareMatrix>& matrices) const = 0;
 	virtual std::string getDescription() const = 0;
+	virtual int requiredMatrix() const = 0;
 };

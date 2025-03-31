@@ -7,6 +7,7 @@ private:
 
 public:
 	ScalarFunction(int scalar);
-	SquareMatrix apply(const SquareMatrix& m) const override;
+	SquareMatrix apply(const std::vector<SquareMatrix>& matrices) const override;
 	std::string getDescription() const override;
+	int requiredMatrix() const override;
 };

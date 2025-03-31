@@ -15,10 +15,18 @@ MatrixCalculator::MatrixCalculator() {
 
 //===============================================
 void MatrixCalculator::printFunctions() const {
-	std::cout << "Functions:" << std::endl;
+	std::cout << "List of available matrix operations:" << std::endl;
 	for (int i = 0; i < functions.size(); i++) {
 		std::cout << i << ". " << functions[i]->getDescription() << std::endl;
 	}
+	std::cout << std::endl;
+}
+
+//===============================================
+SquareMatrix MatrixCalculator::inputMatrix(int size) const {
+	SquareMatrix m(size);
+	m.inputValues();
+	return m;
 }
 
 //===============================================
@@ -73,11 +81,35 @@ void MatrixCalculator::handleEval(std::istream& is) {
 		std::cout << "Invalid function number" << std::endl;
 		return;
 	}
+
 	int size;
 	is >> size;
-	SquareMatrix m(size);
-	m.inputValues();
-	std::cout << functions[num]->apply(m) << std::endl;
+
+	int requiredMatrix = functions[num]->requiredMatrix();
+	std::vector<SquareMatrix> matrices;
+
+	std::cout << std::endl;
+
+	if (requiredMatrix > 1) {
+		std::cout << "Please enter " << requiredMatrix << " matrix: " << std::endl;
+		for (int i = 0; i < requiredMatrix; i++) {
+			std::cout << "Enter a " << size << "x" << size << " matrix" << std::endl;
+			matrices.push_back(inputMatrix(size));
+		}
+	}
+	else {
+		std::cout << "Enter a " << size << "x" << size << " matrix" << std::endl;
+		matrices.push_back(inputMatrix(size));
+	}
+
+	SquareMatrix result = functions[num]->apply(matrices);
+	std::cout << std::endl << functions[num]->getDescription();
+
+	for (int i = 0; i < requiredMatrix; i++) {
+		std::cout << "(" << std::endl << matrices[i] << ")";
+	}
+
+	std::cout << " =" << std::endl << result << std::endl;
 }
 
 //===============================================
@@ -85,6 +117,7 @@ void MatrixCalculator::handleScal(std::istream& is) {
 	int scalar;
 	is >> scalar;
 	functions.push_back(std::make_shared<ScalarFunction>(scalar));
+	std::cout << std::endl;
 }
 
 //===============================================

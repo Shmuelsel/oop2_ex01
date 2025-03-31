@@ -22,6 +22,7 @@ private:
 
 	void printHelp() const;
 	void printFunctions() const;
+	SquareMatrix inputMatrix(int size) const;
 	Command parseCommand(const std::string& command) const;
 
 	void handleEval(std::istream& is);
