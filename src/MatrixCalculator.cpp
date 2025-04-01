@@ -91,14 +91,15 @@ void MatrixCalculator::handleEval(std::istream& is) {
 	std::cout << std::endl;
 
 	if (requiredMatrix > 1) {
-		std::cout << "Please enter " << requiredMatrix << " matrix: " << std::endl;
+		std::cout << "Please enter " << requiredMatrix << " matrix:" << std::endl << std::endl;
 		for (int i = 0; i < requiredMatrix; i++) {
-			std::cout << "Enter a " << size << "x" << size << " matrix" << std::endl;
+			std::cout << "Enter a " << size << "x" << size << " matrix:" << std::endl;
 			matrices.push_back(inputMatrix(size));
+			std::cout << std::endl;
 		}
 	}
 	else {
-		std::cout << "Enter a " << size << "x" << size << " matrix" << std::endl;
+		std::cout << "Enter a " << size << "x" << size << " matrix:" << std::endl;
 		matrices.push_back(inputMatrix(size));
 	}
 

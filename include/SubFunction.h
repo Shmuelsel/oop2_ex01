@@ -3,9 +3,9 @@
 
 class SubFunction : public MatrixFunction {
 private:
-	std::shared_ptr<MatrixFunction> func1;
-	std::shared_ptr<MatrixFunction> func2;
-	std::string description;
+	std::shared_ptr<MatrixFunction> m_func1;
+	std::shared_ptr<MatrixFunction> m_func2;
+	std::string m_description;
 
 public:
 	SubFunction(std::shared_ptr<MatrixFunction> func1, std::shared_ptr<MatrixFunction> func2);

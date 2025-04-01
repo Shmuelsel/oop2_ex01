@@ -4,8 +4,8 @@
 
 class SquareMatrix {
 private:
-	std::vector<std::vector<int>> data;
-	int size;
+	std::vector<std::vector<int>> m_data;
+	int m_size;
 
 public:
 	SquareMatrix(int size);
@@ -17,5 +17,4 @@ public:
 	void inputValues();
 
 	friend std::ostream& operator<<(std::ostream& os, const SquareMatrix& m);
-
 };

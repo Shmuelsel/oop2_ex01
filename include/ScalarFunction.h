@@ -3,7 +3,7 @@
 
 class ScalarFunction : public MatrixFunction {
 private:
-	int scalar;
+	int m_scalar;
 
 public:
 	ScalarFunction(int scalar);
