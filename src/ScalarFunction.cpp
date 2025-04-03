@@ -1,6 +1,8 @@
 #include "ScalarFunction.h"
 
-ScalarFunction::ScalarFunction(int scalar) : m_scalar(scalar) {}
+ScalarFunction::ScalarFunction(int scalar) : m_scalar(scalar) {
+	m_description = "scal " + std::to_string(m_scalar);
+}
 
 SquareMatrix ScalarFunction::apply(const std::vector<SquareMatrix>& matrices) const {
 	return matrices[0] * m_scalar;
@@ -8,7 +10,7 @@ SquareMatrix ScalarFunction::apply(const std::vector<SquareMatrix>& matrices) co
 
 //===============================================
 std::string ScalarFunction::getDescription() const {
-	return "Scal " + std::to_string(m_scalar);
+	return m_description;
 }
 
 //===============================================

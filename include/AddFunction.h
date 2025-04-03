@@ -5,7 +5,6 @@ class AddFunction : public MatrixFunction {
 private:
 	std::shared_ptr<MatrixFunction> m_func1;
 	std::shared_ptr<MatrixFunction> m_func2;
-	std::string m_description;
 
 public:
 	AddFunction(std::shared_ptr<MatrixFunction> func1, std::shared_ptr<MatrixFunction> func2);

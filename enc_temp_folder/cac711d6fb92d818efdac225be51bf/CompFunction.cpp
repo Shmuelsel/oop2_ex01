@@ -21,7 +21,6 @@ SquareMatrix CompFunction::apply(const std::vector<SquareMatrix>& matrices) cons
 
 	//put the result of the first function to the front of the vector
 	temp2.insert(temp2.begin(), m_func1->apply(temp1));
-
 	return m_func2->apply(temp2);
 }
 

@@ -17,6 +17,7 @@ SquareMatrix AddFunction::apply(const std::vector<SquareMatrix>& matrices) const
 	for (int i = m_func1->requiredMatrix(); i < matrices.size(); i++) {
 		temp2.push_back(matrices[i]);
 	}
+
 	return m_func1->apply(temp1) + m_func2->apply(temp2);
 }
 
