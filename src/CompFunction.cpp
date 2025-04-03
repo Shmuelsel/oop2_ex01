@@ -11,12 +11,13 @@ SquareMatrix CompFunction::apply(const std::vector<SquareMatrix>& matrices) cons
 	std::vector<SquareMatrix> temp1;
 	std::vector<SquareMatrix> temp2;
 
-	for (int i = 0; i < m_func1->requiredMatrix(); i++) {
-		temp1.push_back(matrices[i]);
-	}
-
-	for (int i = m_func1->requiredMatrix(); i < matrices.size(); i++) {
-		temp2.push_back(matrices[i]);
+	for (int i = 0; i < matrices.size(); i++) {
+		if (i < m_func1->requiredMatrix()) {
+			temp1.push_back(matrices[i]);
+		}
+		else {
+			temp2.push_back(matrices[i]);
+		}
 	}
 
 	//put the result of the first function to the front of the vector
