@@ -85,6 +85,11 @@ void MatrixCalculator::handleEval(std::istream& is) {
 	int size;
 	is >> size;
 
+	if (size < 2) {
+		std::cout << "Invalid matrix size\n";
+		return;
+	}
+
 	int requiredMatrix = functions[num]->requiredMatrix();
 	std::vector<SquareMatrix> matrices;
 
