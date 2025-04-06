@@ -32,7 +32,7 @@ SquareMatrix MatrixCalculator::inputMatrix(int size) const {
 //===============================================
 void MatrixCalculator::printHelp() const {
     std::cout << "\nThe available commands are:\n";
-    std::cout << "- eval(num)        : Compute the result of operation #num on a given nªn matrix\n";
+    std::cout << "- eval(num)        : Compute the result of operation #num on a given nÂªn matrix\n";
     std::cout << "- scal(ar)(val)    : Create an operation that multiplies the matrix by scalar val\n";
     std::cout << "- add(num1)(num2)  : Create an operation that is the sum of operations #num1 and #num2\n";
     std::cout << "- sub(num1)(num2)  : Create an operation that is the difference of operations #num1 and #num2\n";
@@ -86,7 +86,7 @@ void MatrixCalculator::handleEval(std::istream& is) {
 	is >> size;
 
 	if (size < 2) {
-		std::cout << "Invalid matrix size\n";
+		std::cout << "\nInvalid matrix size\n";
 		return;
 	}
 
