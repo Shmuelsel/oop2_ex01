@@ -11,15 +11,18 @@ SquareMatrix CompFunction::apply(const std::vector<SquareMatrix>& matrices) cons
 	std::vector<SquareMatrix> temp1;
 	std::vector<SquareMatrix> temp2;
 
-	temp1.push_back(matrices[0]);
-
-	//start from 1 because the first matrix is always go to the comp function
-	for (int i = 1; i < matrices.size(); i++) {
-		temp2.push_back(matrices[i]);
+	for (int i = 0; i < matrices.size(); i++) {
+		if (i < m_func1->requiredMatrix()) {
+			temp1.push_back(matrices[i]);
+		}
+		else {
+			temp2.push_back(matrices[i]);
+		}
 	}
-	
+
 	//put the result of the first function to the front of the vector
 	temp2.insert(temp2.begin(), m_func1->apply(temp1));
+
 	return m_func2->apply(temp2);
 }
 
@@ -30,6 +33,6 @@ std::string CompFunction::getDescription() const {
 
 //===============================================
 int CompFunction::requiredMatrix() const {
-	return m_func2->requiredMatrix();
+	return m_func1->requiredMatrix() + m_func2->requiredMatrix() - 1;
 }
 
